@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Walmart Splitter",
+    "version": "1.0",
+    "description": "Will help u split walmart bills",
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.google.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ]
+}
