@@ -1,25 +1,25 @@
 // Function to find and delete the first SVG element
 function deleteFirstSvgElement() {
-  // Find the first SVG element in the document
-  const svgElement = document.querySelector("svg");
+    // Find the first SVG element in the document
+    const svgElement = document.querySelector("svg");
 
-  // Check if an SVG element was found
-  if (svgElement) {
-    // Remove the SVG from the DOM
-    svgElement.remove();
-    console.log("First SVG element has been deleted");
-  } else {
-    console.log("No SVG element found in the document");
-  }
+    // Check if an SVG element was found
+    if (svgElement) {
+        // Remove the SVG from the DOM
+        svgElement.remove();
+        console.log("First SVG element has been deleted");
+    } else {
+        console.log("No SVG element found in the document");
+    }
 
-  chrome.runtime.onMessage.addListener(function (
-    message,
-    sender,
-    sendResponse
-  ) {
-    console.log("Message received from popup:", message);
-    chrome.runtime.sendMessage({ greeting: "Hello from the content!" });
-  });
+    chrome.runtime.onMessage.addListener(function (
+        message,
+        sender,
+        sendResponse
+    ) {
+        console.log("Message received from popup:", message);
+        chrome.runtime.sendMessage({ greeting: "Hello from the content!" });
+    });
 }
 
 // Execute the function when the content script runs

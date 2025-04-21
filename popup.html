@@ -1,39 +1,79 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- <link rel="stylesheet" href="popup.css" /> -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Use local Bootstrap CSS -->
-    <link rel="stylesheet" href="lib/bootstrap.min.css" />
-  </head>
-  <body>
-    <div class="container mt-3 mb-5">
-      <h1>Bill Splitter</h1>
-      <div class="dropdown">
-        <button
-          class="btn btn-primary dropdown-toggle"
-          type="button"
-          id="dropdownMenuButton"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Dropdown
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <li><a class="dropdown-item" href="#">Option 1</a></li>
-          <li><a class="dropdown-item" href="#">Option 2</a></li>
-          <li><a class="dropdown-item" href="#">Option 3</a></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><a class="dropdown-item" href="#">Option 4</a></li>
-        </ul>
-      </div>
-    </div>
+    <head>
+        <link rel="stylesheet" href="popup.css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Use local Bootstrap CSS -->
+        <link rel="stylesheet" href="lib/bootstrap.min.css" />
+    </head>
+    <body>
+        <div class="container mt-3 mb-5">
+            <h1 class="text-center">Bill Splitter</h1>
+            <div class="people-list">
+                <h4>People</h4>
+                <ul class="list-group mb-3" id="people-list"></ul>
+                <div class="d-flex justify-content-end mb-3">
+                    <button
+                        id="add-person-btn"
+                        class="btn btn-primary float-right"
+                    >
+                        Add Person
+                    </button>
+                </div>
+            </div>
+        </div>
 
-    <!-- Use local Bootstrap JS -->
-    <script src="lib/bootstrap.bundle.min.js"></script>
-    <script src="popup.js"></script>
-  </body>
+        <!-- templates -->
+        <template id="person-item-template">
+            <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+            >
+                <span class="person-name"></span>
+                <input
+                    type="text"
+                    data-person-index="-1"
+                    class="form-control person-name-input d-none w-50"
+                    placeholder="Enter name"
+                />
+                <div class="btn-group" role="group">
+                    <button
+                        type="button"
+                        data-person-index="-1"
+                        class="btn btn-sm btn-success save-btn d-none"
+                    >
+                        Save
+                    </button>
+                    <button
+                        type="button"
+                        data-person-index="-1"
+                        class="btn btn-sm btn-outline-primary edit-btn"
+                    >
+                        Edit
+                    </button>
+                    <button
+                        type="button"
+                        data-person-index="-1"
+                        class="btn btn-sm btn-outline-danger delete-btn"
+                    >
+                        Delete
+                    </button>
+                    <button
+                        type="button"
+                        data-person-index="-1"
+                        class="btn btn-sm btn-outline-danger cancel-btn d-none"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </li>
+        </template>
+
+        <!-- Use local Bootstrap JS -->
+        <script src="lib/bootstrap.bundle.min.js"></script>
+        <script src="lib/jquery-3.7.1.min.js"></script>
+        <script src="popup.js"></script>
+    </body>
 </html>
